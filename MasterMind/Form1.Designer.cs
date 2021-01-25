@@ -31,7 +31,7 @@ namespace MasterMind
         {
             this.botondelcolor = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.colorboton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -48,25 +48,28 @@ namespace MasterMind
             this.botondelcolor.UseWaitCursor = true;
             this.botondelcolor.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // colorboton
             // 
-            this.button1.Location = new System.Drawing.Point(12, 75);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(94, 45);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.colorboton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.colorboton.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.colorboton.Location = new System.Drawing.Point(12, 75);
+            this.colorboton.Name = "colorboton";
+            this.colorboton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.colorboton.Size = new System.Drawing.Size(94, 45);
+            this.colorboton.TabIndex = 1;
+            this.colorboton.UseVisualStyleBackColor = false;
+            this.colorboton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 36);
+            this.label1.Location = new System.Drawing.Point(22, 37);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "try";
+            this.label1.Text = "gnbeidwasdwa\r\n";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 
@@ -74,7 +77,7 @@ namespace MasterMind
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 289);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.colorboton);
             this.Controls.Add(this.botondelcolor);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -88,7 +91,7 @@ namespace MasterMind
 
         private System.Windows.Forms.Button botondelcolor;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button colorboton;
         private System.Windows.Forms.Label label1;
     }
 }
