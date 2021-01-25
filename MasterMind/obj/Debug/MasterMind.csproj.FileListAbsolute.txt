@@ -1,0 +1,10 @@
+C:\Users\danie\Source\Repos\Jepolancodlc\MasterMind\MasterMind\bin\Debug\MasterMind.exe.config
+C:\Users\danie\Source\Repos\Jepolancodlc\MasterMind\MasterMind\bin\Debug\MasterMind.exe
+C:\Users\danie\Source\Repos\Jepolancodlc\MasterMind\MasterMind\bin\Debug\MasterMind.pdb
+C:\Users\danie\Source\Repos\Jepolancodlc\MasterMind\MasterMind\obj\Debug\MasterMind.csprojAssemblyReference.cache
+C:\Users\danie\Source\Repos\Jepolancodlc\MasterMind\MasterMind\obj\Debug\MasterMind.Form1.resources
+C:\Users\danie\Source\Repos\Jepolancodlc\MasterMind\MasterMind\obj\Debug\MasterMind.Properties.Resources.resources
+C:\Users\danie\Source\Repos\Jepolancodlc\MasterMind\MasterMind\obj\Debug\MasterMind.csproj.GenerateResource.cache
+C:\Users\danie\Source\Repos\Jepolancodlc\MasterMind\MasterMind\obj\Debug\MasterMind.csproj.CoreCompileInputs.cache
+C:\Users\danie\Source\Repos\Jepolancodlc\MasterMind\MasterMind\obj\Debug\MasterMind.exe
+C:\Users\danie\Source\Repos\Jepolancodlc\MasterMind\MasterMind\obj\Debug\MasterMind.pdb

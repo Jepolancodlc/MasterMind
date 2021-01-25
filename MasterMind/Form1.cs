@@ -16,5 +16,24 @@ namespace MasterMind
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                button1_Click_1.forecolor = colorDialog1.Color;
+            
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            colorDialog1.Color = Color.White;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
