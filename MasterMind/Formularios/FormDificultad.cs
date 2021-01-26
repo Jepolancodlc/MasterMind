@@ -24,29 +24,26 @@ namespace MasterMind
             //Principiante
             if(radioButton1.Checked)
             {
-                 formularioJugar = new FormJugar(4,10);
+                 formularioJugar = new FormJugar(4,10, true);
                 
             } 
             else if (radioButton2.Checked)
             { // Intermedio
-                 formularioJugar = new FormJugar(5,8);              
+                 formularioJugar = new FormJugar(5,8, true);              
             }
             else
             { // Avanzado
-                 formularioJugar = new FormJugar(6,6);            
+                 formularioJugar = new FormJugar(6,6, true);            
             }
 
-         formularioJugar.Show();
+                 formularioJugar.Show();
 
-           // FormConfiguracion formConfiguracion = new FormConfiguracion(6);
-
-             //formConfiguracion.Show();
             this.Hide();
         }
         public void bt_Cancelar_Click(object sender, EventArgs e)
         {
             //Modo principiante
-            formularioJugar = new FormJugar(4, 10);
+            formularioJugar = new FormJugar(4, 10, true);
 
             formularioJugar.Show();
 

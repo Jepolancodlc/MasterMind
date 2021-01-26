@@ -41,11 +41,11 @@ namespace MasterMind
             // 
             // botondelcolor
             // 
-            this.botondelcolor.Location = new System.Drawing.Point(32, 91);
+            this.botondelcolor.Location = new System.Drawing.Point(22, 139);
             this.botondelcolor.Name = "botondelcolor";
-            this.botondelcolor.Size = new System.Drawing.Size(75, 23);
+            this.botondelcolor.Size = new System.Drawing.Size(94, 23);
             this.botondelcolor.TabIndex = 0;
-            this.botondelcolor.Text = "Elije el color";
+            this.botondelcolor.Text = "Aceptar";
             this.botondelcolor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.botondelcolor.UseMnemonic = false;
             this.botondelcolor.UseVisualStyleBackColor = true;
@@ -54,8 +54,8 @@ namespace MasterMind
             // 
             // colorboton
             // 
-            this.colorboton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.colorboton.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.colorboton.BackColor = System.Drawing.Color.White;
+            this.colorboton.ForeColor = System.Drawing.Color.White;
             this.colorboton.Location = new System.Drawing.Point(22, 28);
             this.colorboton.Name = "colorboton";
             this.colorboton.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -66,64 +66,71 @@ namespace MasterMind
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(122, 28);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button1.Size = new System.Drawing.Size(94, 45);
             this.button1.TabIndex = 2;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(222, 28);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button2.Size = new System.Drawing.Size(94, 45);
             this.button2.TabIndex = 3;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.button3.Location = new System.Drawing.Point(322, 28);
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(22, 79);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(94, 45);
             this.button3.TabIndex = 4;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.button4.Location = new System.Drawing.Point(422, 28);
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(122, 79);
             this.button4.Name = "button4";
             this.button4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button4.Size = new System.Drawing.Size(94, 45);
             this.button4.TabIndex = 5;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.button5.Location = new System.Drawing.Point(522, 28);
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(222, 79);
             this.button5.Name = "button5";
             this.button5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button5.Size = new System.Drawing.Size(94, 45);
             this.button5.TabIndex = 6;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Visible = false;
+            this.button5.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // FormConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(344, 183);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,21 +19,31 @@ namespace MasterMind
         private List<Color> listaSolucionColores; 
         private int posicionY = 10;
         private int numColores;
+        private int numIntentos;
         private Color[] arrayColores;
         private int clicks = 0;
+        private int intentosRealizados = 0;
+        private bool firstTime = true;
+        private bool usuario = false;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="numColores"></param>
         /// <param name="numIntentos"></param>
-        public FormJugar(int numColores, int numIntentos)
+        public FormJugar(int numColores, int numIntentos, bool firstTime)
         {
             InitializeComponent();
 
-            this.numColores = numColores;
+            if (firstTime == false)
+            {
+                button2.Visible = true;
+            }
 
-            instanciaJuego = new Juego(this.numColores, numIntentos);
+            this.numColores = numColores;
+            this.numIntentos = numIntentos;
+            this.firstTime = firstTime;
+            instanciaJuego = new Juego(this.numColores, this.numIntentos);
             controlUsuario = new ControlUsuario();
 
             controlUsuario.Location = new Point(10, posicionY);
@@ -41,8 +52,10 @@ namespace MasterMind
             controlUsuario.Start(numColores);
 
             controlUsuario.Show();
-
+        
             ObtenerColorRandom();
+            
+            
 
             ObtenerColoresDisponibles();
 
@@ -159,16 +172,36 @@ namespace MasterMind
             ControlUsuario controlUsuario1 = new ControlUsuario();
 
             clicks = 0;
-
-            resultado = controlUsuario.ComprobarColores(listaSolucionColores);
-
-            if (resultado.Count == instanciaJuego.getNumColores())
+            if (intentosRealizados < numIntentos)
             {
+                resultado = controlUsuario.ComprobarColores(listaSolucionColores);
 
-                if (!resultado.Contains(Color.White))
+                if (resultado.Count == instanciaJuego.getNumColores())
                 {
-                    //Hemos ganado
-                    MessageBox.Show("¡Has ganado!");
+
+                    if (!resultado.Contains(Color.White))
+                    {
+                        //Hemos ganado
+                        MessageBox.Show("¡Has ganado!");
+                        
+                        Reiniciar();
+                    }
+                    else
+                    {
+                        posicionY += 50;
+
+                        button1.Location = new Point(155, posicionY + 21);
+
+                        controlUsuario1 = new ControlUsuario();
+                        controlUsuario1.Location = new Point(10, posicionY);
+
+                        this.Controls.Add(controlUsuario1);
+                        controlUsuario1.Start(numColores);
+
+                        controlUsuario1.Show();
+
+                    }
+
                 }
                 else
                 {
@@ -185,23 +218,16 @@ namespace MasterMind
                     controlUsuario1.Show();
 
                 }
-                       
+                intentosRealizados++;
             }
             else
             {
-                posicionY += 50;
-
-                button1.Location = new Point(155, posicionY + 21);
-
-                controlUsuario1 = new ControlUsuario();
-                controlUsuario1.Location = new Point(10, posicionY);
-
-                this.Controls.Add(controlUsuario1);
-                controlUsuario1.Start(numColores);
-
-                controlUsuario1.Show();
-
+                MessageBox.Show("¡Good luck loser, see you next time!");
+                
+                Reiniciar();
             }
+
+            
 
             controlUsuario = controlUsuario1;
 
@@ -242,6 +268,66 @@ namespace MasterMind
             }
 
             clicks++;
+        }
+
+        /// <summary>
+        /// Método que reinicia la aplicación para una partida nueva
+        /// </summary>
+        private void Reiniciar()
+        {
+            
+            FormJugar nuevo = new FormJugar(numColores, numIntentos, false);
+            nuevo.Show();
+            this.Hide();
+        }
+
+        /// <summary>
+        /// Option clicks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (firstTime == false)
+            {
+                usuario = true;
+                FormConfiguracion formConfiguracion = new FormConfiguracion(numColores);
+
+                formConfiguracion.Show();
+
+               // while (!formConfiguracion.getLleno())
+                //{
+                     ObtenerColorUsuario(formConfiguracion);
+                //}
+
+                ObtenerColoresDisponibles();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void ObtenerColorUsuario(FormConfiguracion formConfiguracion)
+        {
+            Color[] listaPaleta = new Color[numColores];
+            
+
+            formConfiguracion.getList(ref listaPaleta);
+
+            pictureBox18.BackColor = listaPaleta[0];
+            pictureBox17.BackColor = listaPaleta[1];
+            pictureBox16.BackColor = listaPaleta[2];
+            pictureBox15.BackColor = listaPaleta[3];
+
+            if (numColores > 4)
+            {
+                pictureBox14.BackColor = listaPaleta[4];
+                if (numColores > 5)
+                {
+                    pictureBox13.BackColor = listaPaleta[5];
+                }
+            }
+
         }
     }
 }
