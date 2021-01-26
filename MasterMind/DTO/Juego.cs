@@ -18,11 +18,19 @@ namespace MasterMind
             this.numIntentos = numIntentos;
         }
 
+        /// <summary>
+        /// Getter para obtener la cantidad de colores a mostrar
+        /// </summary>
+        /// <returns></returns>
         public int getNumColores()
         {
             return numColores;
         }
 
+        /// <summary>
+        /// Getter para obtener el número de intentos a permitir
+        /// </summary>
+        /// <returns></returns>
         public int getNumIntentos()
         {
             return numIntentos;

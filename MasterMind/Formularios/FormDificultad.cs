@@ -12,9 +12,11 @@ namespace MasterMind
 {
     public partial class FormDificultad : Form
     {
+        FormJugar formularioJugar;
         public FormDificultad()
         {
             InitializeComponent();
+            
         }
 
         public void bt_Aceptar_Click(object sender, EventArgs e)
@@ -22,19 +24,20 @@ namespace MasterMind
             //Principiante
             if(radioButton1.Checked)
             {
-                FormJugar formularioJugar = new FormJugar(4,10);             
-
+                 formularioJugar = new FormJugar(4,10);
+                
             } 
             else if (radioButton2.Checked)
             { // Intermedio
-                FormJugar formularioJugar = new FormJugar(5,8);              
+                 formularioJugar = new FormJugar(5,8);              
             }
             else
             { // Avanzado
-                FormJugar formularioJugar = new FormJugar(6,6);            
+                 formularioJugar = new FormJugar(6,6);            
             }
 
-          
+          formularioJugar.Show();
+
             // FormConfiguracion formConfiguracion = new FormConfiguracion(instanciaJuego.getNumColores());TODO
 
             // formConfiguracion.Show();TODO
@@ -43,8 +46,9 @@ namespace MasterMind
         public void bt_Cancelar_Click(object sender, EventArgs e)
         {
             //Modo principiante
-            FormJugar formularioJugar = new FormJugar(4, 10);
+            formularioJugar = new FormJugar(4, 10);
 
+            formularioJugar.Show();
 
             // FormConfiguracion formConfiguracion = new FormConfiguracion(instanciaJuego); TODO
 

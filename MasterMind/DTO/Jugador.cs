@@ -8,5 +8,6 @@ namespace MasterMind
 {
     class Jugador
     {
+
     }
 }

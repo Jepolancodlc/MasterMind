@@ -18,8 +18,18 @@ namespace MasterMind
 
 
             Juego instanciaJuego = new Juego(numColores, numIntentos);
+            ControlUsuario controlUsuario = new ControlUsuario();
+
+            controlUsuario.Location = new Point(10,10);
+
+            this.Controls.Add(controlUsuario);
+            controlUsuario.Start(numColores);
+
+            controlUsuario.Show();
 
         }
+
+
 
     }
 }
