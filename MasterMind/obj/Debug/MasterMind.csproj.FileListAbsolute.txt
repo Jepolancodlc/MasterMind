@@ -21,3 +21,4 @@ C:\GitHub\MasterMind\MasterMind\obj\Debug\MasterMind.exe
 C:\GitHub\MasterMind\MasterMind\obj\Debug\MasterMind.pdb
 C:\GitHub\MasterMind\MasterMind\obj\Debug\MasterMind.FormJugar.resources
 C:\GitHub\MasterMind\MasterMind\obj\Debug\MasterMind.ControlUsuario.resources
+C:\GitHub\MasterMind\MasterMind\obj\Debug\MasterMind.FormConfiguracion.resources

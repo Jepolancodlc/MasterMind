@@ -12,12 +12,14 @@ namespace MasterMind
 {
     public partial class FormJugar : Form
     {
-        //Atributos TODO
-        ControlUsuario controlUsuario;
-        Juego instanciaJuego;
-        List<Color> listaSolucionColores; //TODO
-        int posicionY = 10;
+        //Atributos 
+        private ControlUsuario controlUsuario;
+        private Juego instanciaJuego;
+        private List<Color> listaSolucionColores; 
+        private int posicionY = 10;
         private int numColores;
+        private Color[] arrayColores;
+        private int clicks = 0;
 
         /// <summary>
         /// Constructor
@@ -42,7 +44,7 @@ namespace MasterMind
 
             ObtenerColorRandom();
 
-            
+            ObtenerColoresDisponibles();
 
         }
 
@@ -51,7 +53,7 @@ namespace MasterMind
         /// </summary>
         private void ObtenerColorRandom()
         {
-            Color[] arrayColores = new Color[10];
+            arrayColores = new Color[10];
             Random random = new Random();
 
             arrayColores[0] = Color.Red;
@@ -89,6 +91,64 @@ namespace MasterMind
         }
 
         /// <summary>
+        /// Obtenemos los colores disponibles que mostramos al usuario
+        /// </summary>
+        private void ObtenerColoresDisponibles()
+        {
+            Color[] coloresDisponibles = ColorRandom();
+            
+            pictureBox12.BackColor = coloresDisponibles[0];
+            pictureBox11.BackColor = coloresDisponibles[1];
+            pictureBox10.BackColor = coloresDisponibles[2];
+            pictureBox9.BackColor = coloresDisponibles[3];
+
+            if (numColores > 4)
+            {
+                pictureBox8.BackColor = coloresDisponibles[4];
+                if (numColores > 5)
+                {
+                    pictureBox7.BackColor = coloresDisponibles[5];
+                }
+            }
+            
+        }
+
+        private Color[] ColorRandom()
+        {
+            Color[] listaPaleta = new Color[numColores];
+            Color[] listaComprobante = null;
+            Random random = new Random();
+
+            for (int i = 0; i < numColores; i++)
+            {
+                if(listaComprobante == null )
+                {
+                    listaComprobante = new Color[numColores];
+                    listaPaleta[i] = listaSolucionColores[i];
+                }
+                else if(Array.Exists(listaComprobante, element => element == listaSolucionColores[i]))
+                {
+
+                    listaPaleta[i] = arrayColores[random.Next(0, 10)];
+
+                    while (Array.Exists(listaComprobante, element => element == listaPaleta[i]))
+                    {
+                        listaPaleta[i] = arrayColores[random.Next(0, 10)];
+                    }
+                   
+                }
+                else
+                {
+                    listaPaleta[i] = listaSolucionColores[i];
+                }
+
+                listaComprobante[i] = listaPaleta[i];
+            }
+
+            return listaPaleta;
+        }
+
+        /// <summary>
         /// Botón para comprobar los colores introducidos
         /// </summary>
         /// <param name="sender"></param>
@@ -97,6 +157,8 @@ namespace MasterMind
         {
             List<Color> resultado;
             ControlUsuario controlUsuario1 = new ControlUsuario();
+
+            clicks = 0;
 
             resultado = controlUsuario.ComprobarColores(listaSolucionColores);
 
@@ -143,6 +205,43 @@ namespace MasterMind
 
             controlUsuario = controlUsuario1;
 
+        }
+
+        /// <summary>
+        /// Evento que obtiene el color seleccionado por el usuario y lo añade
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+
+            PictureBox picture = (PictureBox)sender;
+
+            switch(clicks)
+            {
+                case 0:
+                    controlUsuario.LlenarPaleta1(picture.BackColor);
+                    break;
+                case 1:
+                    controlUsuario.LlenarPaleta2(picture.BackColor);
+                    break;
+                case 2:
+                    controlUsuario.LlenarPaleta3(picture.BackColor);
+                    break;
+                case 3:
+                    controlUsuario.LlenarPaleta4(picture.BackColor);
+                    break;
+                case 4:
+                    controlUsuario.LlenarPaleta5(picture.BackColor);
+                    break;
+                case 5:
+                    controlUsuario.LlenarPaleta6(picture.BackColor);
+                    break;
+                
+
+            }
+
+            clicks++;
         }
     }
 }

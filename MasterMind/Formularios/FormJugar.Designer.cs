@@ -82,6 +82,7 @@ namespace MasterMind
             this.pictureBox7.Size = new System.Drawing.Size(16, 16);
             this.pictureBox7.TabIndex = 13;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // pictureBox9
             // 
@@ -90,6 +91,7 @@ namespace MasterMind
             this.pictureBox9.Size = new System.Drawing.Size(16, 16);
             this.pictureBox9.TabIndex = 11;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // pictureBox8
             // 
@@ -98,6 +100,7 @@ namespace MasterMind
             this.pictureBox8.Size = new System.Drawing.Size(16, 16);
             this.pictureBox8.TabIndex = 12;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // pictureBox12
             // 
@@ -106,6 +109,7 @@ namespace MasterMind
             this.pictureBox12.Size = new System.Drawing.Size(16, 16);
             this.pictureBox12.TabIndex = 8;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // pictureBox11
             // 
@@ -114,6 +118,7 @@ namespace MasterMind
             this.pictureBox11.Size = new System.Drawing.Size(16, 16);
             this.pictureBox11.TabIndex = 9;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // pictureBox10
             // 
@@ -122,6 +127,7 @@ namespace MasterMind
             this.pictureBox10.Size = new System.Drawing.Size(16, 16);
             this.pictureBox10.TabIndex = 10;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // groupBox2
             // 

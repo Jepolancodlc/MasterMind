@@ -38,7 +38,7 @@ namespace MasterMind
 
          formularioJugar.Show();
 
-            //FormConfiguracion formConfiguracion = new FormConfiguracion(6);
+           // FormConfiguracion formConfiguracion = new FormConfiguracion(6);
 
              //formConfiguracion.Show();
             this.Hide();

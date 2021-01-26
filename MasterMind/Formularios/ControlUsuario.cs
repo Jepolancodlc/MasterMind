@@ -85,6 +85,7 @@ namespace MasterMind
             foreach (Color color in resultado)
             {
                 pictureBoxesResultado[j].BackColor = color;
+                j++;
             }
 
             //Devolvemos la lista resultado con los colores.
