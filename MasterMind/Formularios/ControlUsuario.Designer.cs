@@ -35,7 +35,6 @@ namespace MasterMind
             this.pictureBox22 = new System.Windows.Forms.PictureBox();
             this.pictureBox23 = new System.Windows.Forms.PictureBox();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -107,15 +106,6 @@ namespace MasterMind
             this.pictureBox24.Size = new System.Drawing.Size(16, 16);
             this.pictureBox24.TabIndex = 30;
             this.pictureBox24.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(150, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 16);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Comprobar";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // pictureBox6
             // 
@@ -207,7 +197,6 @@ namespace MasterMind
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
             this.Name = "ControlUsuario";
             this.Size = new System.Drawing.Size(347, 49);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
@@ -236,7 +225,6 @@ namespace MasterMind
         private System.Windows.Forms.PictureBox pictureBox22;
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.PictureBox pictureBox24;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox5;

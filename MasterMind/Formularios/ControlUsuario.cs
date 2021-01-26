@@ -35,6 +35,64 @@ namespace MasterMind
                 pictureBox6.Visible = false;
             }
         }
+
+        /// <summary>
+        /// Se recibe por parámetro la lista ordenada de colores de la solución
+        /// </summary>
+        /// <param name="listaColores"></param>
+        public List<Color> ComprobarColores(List <Color> listaColores)
+        {
+            groupBox1.Visible = true;
+
+            int i = 0;
+            int j = 0;
+            Color[] pictureBoxesColors = new Color[6];
+            PictureBox[] pictureBoxesResultado = new PictureBox[6];
+
+            //Añadimos los colores de los pictureBoxes elegidos por el usuario al array para realizar la comprobación.
+            pictureBoxesColors[0] = pictureBox1.BackColor;
+            pictureBoxesColors[1] = pictureBox2.BackColor;
+            pictureBoxesColors[2] = pictureBox3.BackColor;
+            pictureBoxesColors[3] = pictureBox4.BackColor;
+            pictureBoxesColors[4] = pictureBox5.BackColor;
+            pictureBoxesColors[5] = pictureBox6.BackColor;
+
+            List<Color> resultado = new List<Color>();
+
+            foreach(Color color in listaColores)
+            {
+                if(pictureBoxesColors[i] == color)
+                {
+                    resultado.Add(Color.Black);
+                }
+                else if (Array.Exists(pictureBoxesColors, element => element == color))
+                {                           
+                    resultado.Add(Color.White);
+                }
+                
+
+                i++;
+            }
+
+            pictureBoxesResultado[0] = pictureBox22;
+            pictureBoxesResultado[1] = pictureBox24;
+            pictureBoxesResultado[2] = pictureBox20;
+            pictureBoxesResultado[3] = pictureBox23;
+            pictureBoxesResultado[4] = pictureBox21;
+            pictureBoxesResultado[5] = pictureBox19;
+
+            //Rellenamos  
+            foreach (Color color in resultado)
+            {
+                pictureBoxesResultado[j].BackColor = color;
+            }
+
+            //Devolvemos la lista resultado con los colores.
+            //Si todos los colores son negro, ha ganado.
+            return resultado;
+
+        }
+
         #region LLenarPaletasColores
         /// <summary>
         /// Método para rellenar la pictureBox número 1

@@ -36,11 +36,11 @@ namespace MasterMind
                  formularioJugar = new FormJugar(6,6);            
             }
 
-          formularioJugar.Show();
+         formularioJugar.Show();
 
-            // FormConfiguracion formConfiguracion = new FormConfiguracion(instanciaJuego.getNumColores());TODO
+            //FormConfiguracion formConfiguracion = new FormConfiguracion(6);
 
-            // formConfiguracion.Show();TODO
+             //formConfiguracion.Show();
             this.Hide();
         }
         public void bt_Cancelar_Click(object sender, EventArgs e)
