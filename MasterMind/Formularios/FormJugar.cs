@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace MasterMind
 {
-    public partial class Form1 : Form
+    public partial class FormJugar : Form
     {
-        public Form1()
+        public FormJugar(int numColores, int numIntentos)
         {
             InitializeComponent();
+
+
+            Juego instanciaJuego = new Juego(numColores, numIntentos);
+
         }
+
     }
 }
