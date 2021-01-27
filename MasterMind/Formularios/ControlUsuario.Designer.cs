@@ -174,7 +174,7 @@ namespace MasterMind
             this.groupBox1.Size = new System.Drawing.Size(150, 43);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Pistas";
             // 
             // groupBox2
             // 
@@ -189,7 +189,6 @@ namespace MasterMind
             this.groupBox2.Size = new System.Drawing.Size(141, 43);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
             // 
             // ControlUsuario
             // 

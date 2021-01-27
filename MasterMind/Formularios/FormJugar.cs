@@ -22,7 +22,7 @@ namespace MasterMind
         private int numIntentos;
         private Color[] arrayColores;
         private int clicks = 0;
-        private int intentosRealizados = 0;
+        private int intentosRealizados = 1;
         private bool firstTime = true;
         private bool usuario = false;
 
@@ -39,6 +39,8 @@ namespace MasterMind
             {
                 button2.Visible = true;
             }
+
+            groupBox2.Visible = false;
 
             this.numColores = numColores;
             this.numIntentos = numIntentos;
@@ -185,6 +187,7 @@ namespace MasterMind
                     if (!resultado.Contains(Color.White))
                     {
                         //Hemos ganado
+                        groupBox2.Visible = true;
                         MessageBox.Show("¡Has ganado!");
                         
                         Reiniciar();
@@ -225,6 +228,7 @@ namespace MasterMind
             }
             else
             {
+                groupBox2.Visible = true;
                 MessageBox.Show("¡Good luck loser, see you next time!");
                 
                 Reiniciar();
@@ -291,7 +295,7 @@ namespace MasterMind
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            if (firstTime == false && intentosRealizados == 0)
+            if (firstTime == false && intentosRealizados == 1)
             {
                 usuario = true;
                 FormConfiguracion formConfiguracion = new FormConfiguracion(numColores);
