@@ -40,8 +40,9 @@ namespace MasterMind
         private void button1_Click(object sender, EventArgs e)
         {
             //Boton aceptar
-            this.Hide();
             lleno = true;
+            this.Hide();
+           
         }
 
         /// <summary>
