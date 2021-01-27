@@ -22,7 +22,7 @@ namespace MasterMind
         private int numIntentos;
         private Color[] arrayColores;
         private int clicks = 0;
-        private int intentosRealizados = 0;
+        private int intentosRealizados = 1;
         private bool firstTime = true;
         private bool usuario = false;
 
@@ -40,6 +40,8 @@ namespace MasterMind
                 button2.Visible = true;
             }
 
+            groupBox2.Visible = false;
+
             this.numColores = numColores;
             this.numIntentos = numIntentos;
             this.firstTime = firstTime;
@@ -54,8 +56,6 @@ namespace MasterMind
             controlUsuario.Show();
         
             ObtenerColorRandom();
-            
-            
 
             ObtenerColoresDisponibles();
 
@@ -110,10 +110,10 @@ namespace MasterMind
         {
             Color[] coloresDisponibles = ColorRandom();
             
-            pictureBox12.BackColor = coloresDisponibles[0];
-            pictureBox11.BackColor = coloresDisponibles[1];
-            pictureBox10.BackColor = coloresDisponibles[2];
-            pictureBox9.BackColor = coloresDisponibles[3];
+            pictureBox12.BackColor = coloresDisponibles[2];
+            pictureBox11.BackColor = coloresDisponibles[3];
+            pictureBox10.BackColor = coloresDisponibles[0];
+            pictureBox9.BackColor = coloresDisponibles[1];
 
             if (numColores > 4)
             {
@@ -126,6 +126,11 @@ namespace MasterMind
             
         }
 
+        /// <summary>
+        /// Método que genera a partir de los colores de la solución 6 colores diferentes para mostrar al usuario
+        /// Como colores disponibles
+        /// </summary>
+        /// <returns></returns>
         private Color[] ColorRandom()
         {
             Color[] listaPaleta = new Color[numColores];
@@ -182,6 +187,7 @@ namespace MasterMind
                     if (!resultado.Contains(Color.White))
                     {
                         //Hemos ganado
+                        groupBox2.Visible = true;
                         MessageBox.Show("¡Has ganado!");
                         
                         Reiniciar();
@@ -222,6 +228,7 @@ namespace MasterMind
             }
             else
             {
+                groupBox2.Visible = true;
                 MessageBox.Show("¡Good luck loser, see you next time!");
                 
                 Reiniciar();
@@ -288,45 +295,76 @@ namespace MasterMind
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            if (firstTime == false)
+            if (firstTime == false && intentosRealizados == 1)
             {
                 usuario = true;
                 FormConfiguracion formConfiguracion = new FormConfiguracion(numColores);
-
-                formConfiguracion.Show();
-
-               // while (!formConfiguracion.getLleno())
-                //{
-                     ObtenerColorUsuario(formConfiguracion);
-                //}
-
-                ObtenerColoresDisponibles();
+               
+                formConfiguracion.Owner = this;
+                formConfiguracion.ShowDialog();
+              
+                
+                ObtenerColoresSolucionUsuario(ObtenerColorUsuarioDisponibles(formConfiguracion));
+          
             }
         }
 
         /// <summary>
-        /// 
+        /// Método para asignar los colores seleccionadospor el usuario a la lista de soluciones de colores
         /// </summary>
-        private void ObtenerColorUsuario(FormConfiguracion formConfiguracion)
+        /// <param name="listaPaleta"></param>
+        private void ObtenerColoresSolucionUsuario(Color[] listaPaleta)
+        {
+            listaSolucionColores.Clear();
+
+            pictureBox18.BackColor = listaPaleta[2];
+            listaSolucionColores.Add(listaPaleta[2]); 
+            pictureBox17.BackColor = listaPaleta[3];
+            listaSolucionColores.Add(listaPaleta[3]);
+            pictureBox16.BackColor = listaPaleta[0];
+            listaSolucionColores.Add(listaPaleta[0]);
+            pictureBox15.BackColor = listaPaleta[1];
+            listaSolucionColores.Add(listaPaleta[1]);
+
+            if (numColores > 4)
+            {
+                pictureBox14.BackColor = listaPaleta[4];
+                listaSolucionColores.Add(listaPaleta[4]);
+                if (numColores > 5)
+                {
+                    pictureBox13.BackColor = listaPaleta[5];
+                    listaSolucionColores.Add(listaPaleta[5]);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Colores disponibles que se le muestran al usuario
+        /// </summary>
+        private Color[] ObtenerColorUsuarioDisponibles(FormConfiguracion formConfiguracion)
         {
             Color[] listaPaleta = new Color[numColores];
             
 
             formConfiguracion.getList(ref listaPaleta);
 
-            pictureBox18.BackColor = listaPaleta[0];
-            pictureBox17.BackColor = listaPaleta[1];
-            pictureBox16.BackColor = listaPaleta[2];
-            pictureBox15.BackColor = listaPaleta[3];
+            pictureBox12.BackColor = listaPaleta[0];
+            pictureBox11.BackColor = listaPaleta[1];
+            pictureBox10.BackColor = listaPaleta[2];
+            pictureBox9.BackColor = listaPaleta[3];
 
             if (numColores > 4)
             {
-                pictureBox14.BackColor = listaPaleta[4];
+                pictureBox8.BackColor = listaPaleta[4];
                 if (numColores > 5)
                 {
-                    pictureBox13.BackColor = listaPaleta[5];
+                    pictureBox7.BackColor = listaPaleta[5];
                 }
             }
+
+            return listaPaleta;
 
         }
     }

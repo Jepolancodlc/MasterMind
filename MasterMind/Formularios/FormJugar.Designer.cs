@@ -74,7 +74,7 @@ namespace MasterMind
             this.groupBox1.Size = new System.Drawing.Size(200, 55);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Colores Disponibles";
             // 
             // pictureBox7
             // 
@@ -143,7 +143,7 @@ namespace MasterMind
             this.groupBox2.Size = new System.Drawing.Size(200, 58);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Solución secreta";
             // 
             // pictureBox13
             // 
@@ -197,9 +197,9 @@ namespace MasterMind
             // 
             this.button1.Location = new System.Drawing.Point(155, 31);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 18);
+            this.button1.Size = new System.Drawing.Size(36, 22);
             this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
+            this.button1.Text = "Cmp";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -207,9 +207,9 @@ namespace MasterMind
             // 
             this.button2.Location = new System.Drawing.Point(492, 6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(69, 19);
+            this.button2.Size = new System.Drawing.Size(69, 26);
             this.button2.TabIndex = 9;
-            this.button2.Text = "button2";
+            this.button2.Text = "Ayuda";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);

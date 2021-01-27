@@ -43,7 +43,7 @@ namespace MasterMind
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.Location = new System.Drawing.Point(22, 27);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(113, 24);
             this.radioButton1.TabIndex = 0;
@@ -56,7 +56,7 @@ namespace MasterMind
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.Location = new System.Drawing.Point(22, 57);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(75, 24);
             this.radioButton2.TabIndex = 1;
@@ -69,7 +69,7 @@ namespace MasterMind
             this.radioButton3.AutoSize = true;
             this.radioButton3.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton3.Location = new System.Drawing.Point(22, 87);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(98, 24);
             this.radioButton3.TabIndex = 2;
@@ -84,9 +84,9 @@ namespace MasterMind
             this.gb_SelNivel.Controls.Add(this.radioButton1);
             this.gb_SelNivel.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_SelNivel.Location = new System.Drawing.Point(28, 28);
-            this.gb_SelNivel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gb_SelNivel.Margin = new System.Windows.Forms.Padding(2);
             this.gb_SelNivel.Name = "gb_SelNivel";
-            this.gb_SelNivel.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gb_SelNivel.Padding = new System.Windows.Forms.Padding(2);
             this.gb_SelNivel.Size = new System.Drawing.Size(165, 137);
             this.gb_SelNivel.TabIndex = 3;
             this.gb_SelNivel.TabStop = false;
@@ -94,7 +94,7 @@ namespace MasterMind
             // bt_Aceptar
             // 
             this.bt_Aceptar.Location = new System.Drawing.Point(28, 190);
-            this.bt_Aceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_Aceptar.Margin = new System.Windows.Forms.Padding(2);
             this.bt_Aceptar.Name = "bt_Aceptar";
             this.bt_Aceptar.Size = new System.Drawing.Size(68, 23);
             this.bt_Aceptar.TabIndex = 4;
@@ -105,12 +105,13 @@ namespace MasterMind
             // bt_Cancelar
             // 
             this.bt_Cancelar.Location = new System.Drawing.Point(129, 190);
-            this.bt_Cancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_Cancelar.Margin = new System.Windows.Forms.Padding(2);
             this.bt_Cancelar.Name = "bt_Cancelar";
             this.bt_Cancelar.Size = new System.Drawing.Size(64, 23);
             this.bt_Cancelar.TabIndex = 5;
             this.bt_Cancelar.Text = "Cancelar";
             this.bt_Cancelar.UseVisualStyleBackColor = true;
+            this.bt_Cancelar.Click += new System.EventHandler(this.bt_Cancelar_Click);
             // 
             // FormDificultad
             // 
@@ -122,7 +123,7 @@ namespace MasterMind
             this.Controls.Add(this.bt_Aceptar);
             this.Controls.Add(this.gb_SelNivel);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDificultad";
             this.Text = "Seleccionar Nivel";
             this.gb_SelNivel.ResumeLayout(false);
