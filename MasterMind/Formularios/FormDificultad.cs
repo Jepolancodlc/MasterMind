@@ -16,7 +16,6 @@ namespace MasterMind
         public FormDificultad()
         {
             InitializeComponent();
-            
         }
 
         public void bt_Aceptar_Click(object sender, EventArgs e)
@@ -49,6 +48,5 @@ namespace MasterMind
 
             this.Hide();
         }
-       
     }
 }
