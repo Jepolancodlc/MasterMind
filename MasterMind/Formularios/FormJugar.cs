@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MasterMind.Formularios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,7 @@ namespace MasterMind
         //Atributos 
         private ControlUsuario controlUsuario;
         private Juego instanciaJuego;
-        private List<Color> listaSolucionColores; 
+        private List<Color> listaSolucionColores;
         private int posicionY = 10;
         private int numColores;
         private int numIntentos;
@@ -26,11 +27,8 @@ namespace MasterMind
         private bool firstTime = true;
         private bool usuario = false;
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="numColores"></param>
-        /// <param name="numIntentos"></param>
+        // Constructor
+
         public FormJugar(int numColores, int numIntentos, bool firstTime)
         {
             InitializeComponent();
@@ -54,16 +52,13 @@ namespace MasterMind
             controlUsuario.Start(numColores);
 
             controlUsuario.Show();
-        
+
             ObtenerColorRandom();
 
             ObtenerColoresDisponibles();
-
         }
 
-        /// <summary>
-        /// Rellenamos la solución con colores randoms
-        /// </summary>
+        // Rellenamos la solución con colores randoms
         private void ObtenerColorRandom()
         {
             arrayColores = new Color[10];
@@ -82,9 +77,9 @@ namespace MasterMind
 
             listaSolucionColores = new List<Color>();
 
-            for(int i = 0; i < numColores; i++)
+            for (int i = 0; i < numColores; i++)
             {
-                listaSolucionColores.Add(arrayColores[random.Next(0,10)]);
+                listaSolucionColores.Add(arrayColores[random.Next(0, 10)]);
             }
 
             pictureBox18.BackColor = listaSolucionColores[0];
@@ -92,24 +87,22 @@ namespace MasterMind
             pictureBox16.BackColor = listaSolucionColores[2];
             pictureBox15.BackColor = listaSolucionColores[3];
 
-            if(numColores > 4)
+            if (numColores > 4)
             {
                 pictureBox14.BackColor = listaSolucionColores[4];
                 if (numColores > 5)
                 {
                     pictureBox13.BackColor = listaSolucionColores[5];
                 }
-            }           
-
+            }
         }
 
-        /// <summary>
-        /// Obtenemos los colores disponibles que mostramos al usuario
-        /// </summary>
+       
+        // Obtenemos los colores disponibles que mostramos al usuario
         private void ObtenerColoresDisponibles()
         {
             Color[] coloresDisponibles = ColorRandom();
-            
+
             pictureBox12.BackColor = coloresDisponibles[2];
             pictureBox11.BackColor = coloresDisponibles[3];
             pictureBox10.BackColor = coloresDisponibles[0];
@@ -123,14 +116,10 @@ namespace MasterMind
                     pictureBox7.BackColor = coloresDisponibles[5];
                 }
             }
-            
         }
 
-        /// <summary>
-        /// Método que genera a partir de los colores de la solución 6 colores diferentes para mostrar al usuario
-        /// Como colores disponibles
-        /// </summary>
-        /// <returns></returns>
+
+        //Método que genera a partir de los colores de la solución 6 colores diferentes para mostrar al usuario    
         private Color[] ColorRandom()
         {
             Color[] listaPaleta = new Color[numColores];
@@ -139,12 +128,12 @@ namespace MasterMind
 
             for (int i = 0; i < numColores; i++)
             {
-                if(listaComprobante == null )
+                if (listaComprobante == null)
                 {
                     listaComprobante = new Color[numColores];
                     listaPaleta[i] = listaSolucionColores[i];
                 }
-                else if(Array.Exists(listaComprobante, element => element == listaSolucionColores[i]))
+                else if (Array.Exists(listaComprobante, element => element == listaSolucionColores[i]))
                 {
 
                     listaPaleta[i] = arrayColores[random.Next(0, 10)];
@@ -153,7 +142,6 @@ namespace MasterMind
                     {
                         listaPaleta[i] = arrayColores[random.Next(0, 10)];
                     }
-                   
                 }
                 else
                 {
@@ -162,19 +150,16 @@ namespace MasterMind
 
                 listaComprobante[i] = listaPaleta[i];
             }
-
             return listaPaleta;
         }
 
-        /// <summary>
-        /// Botón para comprobar los colores introducidos
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+       
+        // Botón para comprobar los colores introducidos
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Color> resultado;
-            ControlUsuario controlUsuario1 = new ControlUsuario();
+           FormPopUp popUp = new FormPopUp();
+           List<Color> resultado;
+           ControlUsuario controlUsuario1 = new ControlUsuario();
 
             clicks = 0;
             if (intentosRealizados < numIntentos)
@@ -187,16 +172,14 @@ namespace MasterMind
                     if (!resultado.Contains(Color.White))
                     {
                         //Hemos ganado
-                        groupBox2.Visible = true;
-                        MessageBox.Show("¡Has ganado!");
-                        
+                        popUp.ShowDialog();
                         Reiniciar();
                     }
                     else
                     {
                         posicionY += 50;
 
-                        button1.Location = new Point(155, posicionY + 21);
+                        button1.Location = new Point(button1.Left, posicionY + 10);
 
                         controlUsuario1 = new ControlUsuario();
                         controlUsuario1.Location = new Point(10, posicionY);
@@ -213,7 +196,7 @@ namespace MasterMind
                 {
                     posicionY += 50;
 
-                    button1.Location = new Point(155, posicionY + 21);
+                    button1.Location = new Point(button1.Left, posicionY + 10);
 
                     controlUsuario1 = new ControlUsuario();
                     controlUsuario1.Location = new Point(10, posicionY);
@@ -228,29 +211,26 @@ namespace MasterMind
             }
             else
             {
+                //Hemos Perdido
                 groupBox2.Visible = true;
-                MessageBox.Show("¡Good luck loser, see you next time!");
-                
+                Image imagen = MasterMind.Properties.Resources.notStonks;
+                popUp.uploadText("Me temo que has perdido!");
+                popUp.uploadImage(imagen);
+                popUp.ShowDialog();
                 Reiniciar();
             }
-
-            
 
             controlUsuario = controlUsuario1;
 
         }
 
-        /// <summary>
-        /// Evento que obtiene el color seleccionado por el usuario y lo añade
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // Evento que obtiene el color seleccionado por el usuario y lo añade
         private void pictureBox12_Click(object sender, EventArgs e)
         {
 
             PictureBox picture = (PictureBox)sender;
 
-            switch(clicks)
+            switch (clicks)
             {
                 case 0:
                     controlUsuario.LlenarPaleta1(picture.BackColor);
@@ -270,55 +250,45 @@ namespace MasterMind
                 case 5:
                     controlUsuario.LlenarPaleta6(picture.BackColor);
                     break;
-                
-
             }
-
             clicks++;
         }
 
-        /// <summary>
-        /// Método que reinicia la aplicación para una partida nueva
-        /// </summary>
-        private void Reiniciar()
+        // Método que reinicia la aplicación para una partida nueva
+             private void Reiniciar()
         {
-            
+
             FormJugar nuevo = new FormJugar(numColores, numIntentos, false);
             nuevo.Show();
             this.Hide();
         }
 
-        /// <summary>
-        /// Option clicks
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // Option clicks
         private void button2_Click(object sender, EventArgs e)
         {
             if (firstTime == false && intentosRealizados == 1)
             {
                 usuario = true;
                 FormConfiguracion formConfiguracion = new FormConfiguracion(numColores);
-               
+
                 formConfiguracion.Owner = this;
                 formConfiguracion.ShowDialog();
-              
-                
+
+
                 ObtenerColoresSolucionUsuario(ObtenerColorUsuarioDisponibles(formConfiguracion));
-          
+
             }
         }
 
-        /// <summary>
-        /// Método para asignar los colores seleccionadospor el usuario a la lista de soluciones de colores
-        /// </summary>
-        /// <param name="listaPaleta"></param>
+       
+        //Método para asignar los colores seleccionadospor el usuario a la lista de soluciones de colores
+
         private void ObtenerColoresSolucionUsuario(Color[] listaPaleta)
         {
             listaSolucionColores.Clear();
 
             pictureBox18.BackColor = listaPaleta[2];
-            listaSolucionColores.Add(listaPaleta[2]); 
+            listaSolucionColores.Add(listaPaleta[2]);
             pictureBox17.BackColor = listaPaleta[3];
             listaSolucionColores.Add(listaPaleta[3]);
             pictureBox16.BackColor = listaPaleta[0];
@@ -339,14 +309,11 @@ namespace MasterMind
 
         }
 
-
-        /// <summary>
-        /// Colores disponibles que se le muestran al usuario
-        /// </summary>
+        // Colores disponibles que se le muestran al usuario
         private Color[] ObtenerColorUsuarioDisponibles(FormConfiguracion formConfiguracion)
         {
             Color[] listaPaleta = new Color[numColores];
-            
+
 
             formConfiguracion.getList(ref listaPaleta);
 
@@ -365,7 +332,6 @@ namespace MasterMind
             }
 
             return listaPaleta;
-
         }
     }
 }
